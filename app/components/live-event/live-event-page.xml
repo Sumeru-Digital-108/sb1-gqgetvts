@@ -1,0 +1,30 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Live Event" />
+    
+    <GridLayout rows="auto, *, auto">
+        <!-- Event Info -->
+        <StackLayout row="0" class="p-4 bg-gray-100">
+            <Label text="{{ currentEvent.title }}" class="text-xl font-bold" />
+            <Label text="{{ currentEvent.speakerName }}" class="text-lg text-gray-600" />
+            <Label text="{{ 'Source: ' + currentEvent.sourceLanguage }}" class="text-gray-500" />
+        </StackLayout>
+
+        <!-- Translation Area -->
+        <ScrollView row="1" class="p-4">
+            <StackLayout>
+                <Label text="{{ liveTranslation }}" textWrap="true" class="text-lg" />
+                <Label text="{{ originalText }}" textWrap="true" class="text-gray-500" />
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Controls -->
+        <GridLayout row="2" columns="*, *" class="p-4 bg-gray-100">
+            <DropDown col="0" items="{{ availableLanguages }}" 
+                      selectedIndex="{{ selectedLanguageIndex }}"
+                      class="m-2" />
+            <Button col="1" text="{{ isListening ? 'Stop' : 'Start' }}" 
+                    tap="{{ toggleTranslation }}"
+                    class="{{ isListening ? 'bg-red-500' : 'bg-green-500' }} text-white m-2" />
+        </GridLayout>
+    </GridLayout>
+</Page>

@@ -1,0 +1,17 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Event History" />
+    
+    <ListView items="{{ events }}" class="list-group">
+        <ListView.itemTemplate>
+            <GridLayout columns="*, auto" class="list-group-item p-4">
+                <StackLayout col="0">
+                    <Label text="{{ title }}" class="text-lg font-bold" />
+                    <Label text="{{ speakerName }}" class="text-gray-600" />
+                    <Label text="{{ startTime, 'dd MMM yyyy' }}" class="text-gray-500" />
+                </StackLayout>
+                <Button col="1" text="View" tap="{{ $parent.onEventTap }}" 
+                        class="bg-blue-500 text-white px-4 py-2" />
+            </GridLayout>
+        </ListView.itemTemplate>
+    </ListView>
+</Page>

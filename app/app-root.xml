@@ -1,0 +1,13 @@
+<Frame defaultPage="components/home/home-page">
+    <TabView>
+        <TabViewItem title="Live Events" iconSource="res://tab_live">
+            <Frame defaultPage="components/live-event/live-event-page" />
+        </TabViewItem>
+        <TabViewItem title="History" iconSource="res://tab_history">
+            <Frame defaultPage="components/event-history/event-history-page" />
+        </TabViewItem>
+        <TabViewItem title="Settings" iconSource="res://tab_settings">
+            <Frame defaultPage="components/settings/settings-page" />
+        </TabViewItem>
+    </TabView>
+</Frame>

@@ -1,0 +1,29 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Event Details">
+        <NavigationButton text="Back" android.systemIcon="ic_menu_back" />
+    </ActionBar>
+    
+    <ScrollView>
+        <StackLayout class="p-4">
+            <Label text="{{ event.title }}" class="text-2xl font-bold mb-2" />
+            <Label text="{{ event.speakerName }}" class="text-xl text-gray-600 mb-2" />
+            <Label text="{{ event.description }}" textWrap="true" class="mb-4" />
+            
+            <GridLayout rows="auto, *" class="mb-4">
+                <Label row="0" text="Available Translations" class="font-bold mb-2" />
+                <ListView row="1" items="{{ availableTranslations }}" height="200">
+                    <ListView.itemTemplate>
+                        <GridLayout columns="*, auto" class="p-2">
+                            <Label col="0" text="{{ language }}" />
+                            <Button col="1" text="View" tap="{{ $parent.onViewTranslation }}"
+                                    class="bg-blue-500 text-white px-4" />
+                        </GridLayout>
+                    </ListView.itemTemplate>
+                </ListView>
+            </GridLayout>
+
+            <Button text="Submit Feedback" tap="{{ onSubmitFeedback }}"
+                    class="bg-green-500 text-white p-2 rounded-lg" />
+        </StackLayout>
+    </ScrollView>
+</Page>
